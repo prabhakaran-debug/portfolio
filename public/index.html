@@ -10,6 +10,8 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -20,6 +22,62 @@
     </script>
     <title>portfolio</title>
   </head>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const roleText = "software developer";
+    const techText = "Java | Javascript | React | Mysql | HTML | Css | Bootstrap | JDBC";
+
+    const roleTarget = document.getElementById("role-text");
+    const techTarget = document.getElementById("tech-text");
+
+    const texts = [roleText, techText];
+    const targets = [roleTarget, techTarget];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentText = texts[textIndex];
+      const currentTarget = targets[textIndex];
+      const otherTarget = targets[1 - textIndex];
+
+      // Typing effect
+      const currentTyped = currentText.substring(0, charIndex);
+      currentTarget.textContent = currentTyped;
+      otherTarget.textContent = "";
+
+      // Cursor only on current typing element
+      currentTarget.classList.add("typing-active");
+      otherTarget.classList.remove("typing-active");
+
+      if (!isDeleting && charIndex < currentText.length) {
+        charIndex++;
+        setTimeout(typeLoop, 100);
+      } else if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 1000);
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(typeLoop, 50);
+      } else {
+        // switch to next text
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        charIndex = 0;
+        setTimeout(typeLoop, 400);
+      }
+    }
+
+    typeLoop();
+  });
+</script>
+
+
+
+
+
   <body>
     <nav>
         <h2 class="nav-title">PRABHAKARAN</h2>
@@ -35,11 +93,14 @@
         </ul>
     </nav>
     <section class="info-section">
-        <div class="information">
-            <h1 class="info-name">PRABHAKARAN</h1>
-            <h3 class="info-role">software developer</h3>
-            <p>Java | Javascript | React | Mysql | HTML | Css | Bootstrap | JDBC </p>
-        </div>
+      <div class="information">
+        <h1 class="info-name">PRABHAKARAN</h1>
+        <h3 id="role-text" class="info-role"></h3>
+        <p id="tech-text" class="tech-stack-text"></p>
+      </div>
+
+
+
         <img src="./image/portfolio.jpg">
     </section>
     <section id="about-container">
@@ -48,15 +109,19 @@
             <div class="about-details">
                 <div class="about-content">
                     <p>
-                        Hello! I'm Prabhakaran, a passionate full-stack web developer with experience in building dynamic
-                        and scalable web applications. Currently, I'm interning at Quilltez, where I'm working on an
-                        eCommerce website using technologies like React JS, Node.js, Express.js, and MySQL.<br> My role
-                        involves developing features such as product listings, search functionality, shopping cart
-                        management, user authentication, and integrating payment gateways for secure transactions.
+                        Hi sir, I’m Prabhakaran.
+                        I’m from Ambattur, Chennai.
+                        I completed my Bachelor's degree in Computer Applications (BCA) in 2023 at hindusthan college of arts and science, Coimbatore with no backlogs.
+                        After graduation, I pursued a Java Full Stack Development course at QSpiders, Vadapalani.
+                    </p> 
+                    <p>   
+                        Currently, I’m working as a trainee at Quilltez, where I’ve built a fully functional eCommerce and Emai craft project both using React.js for the frontend and Node.js + Express.js for the backend.
                     </p>
-                    <p> I am driven by the challenge of solving complex problems and always aim to deliver clean, efficient
-                        code. I am constantly learning and growing in the tech space, with a focus on creating seamless user
-                        experiences and robust solutions. </p>
+                    <p>
+                        My short-term goal is to get placed in a reputed company.
+                        My long-term goal is to continuously grow my skills and knowledge to keep up with the evolving tech world.
+
+                    </p>
                         <a href="./image/prabhakaranResumee.pdf" download class="btn">Download Resume</a>
                 </div>
                 <div class="about-img">
@@ -224,32 +289,7 @@
         </div>
     </section>
 
-    <!-- <footer>
-        <div class="foot-section">
-            <div class="foot-info">
-                <h2>Contact us</h2>
-                <p>Email   : prabhakarans2610@gmail.com</p>
-                <p>Phone No : +91 9344389549</p>
-                <p>Address : Chennai,Tamil Nadu</p>
-            </div>
-            <div class="foot-access">
-                <h2>Quick Links</h2>
-                <a href="">Home</a></li>
-                <a href="#about-container">About Me</a>
-                <a href="#project-container">Projects</a>
-                <a href="#skill-container">Skill</a>
-                <a href="#exp-container">Experience</a>
-                <a href="">Contact</a>
-            </div>
-            <div class="foot-emoji">
-                <h2>Follow Us</h2>
-                <a href="https://www.instagram.com/prabhaaa_____?igsh=NDV1bHptZjZldmFh"><img src="./image/insta4.png" alt=""></a>
-                <a href="www.linkedin.com/in/prabhakaran-s-69833b284"><img src="./image/linkedin.png" alt=""></a>
-                <a href=""><img src="./image/github.png" alt=""></a>
-                <a href=""><img src="./image/twitter2.png" alt=""></a>
-            </div>
-        </div>
-    </footer> -->
+   
 
     <div class="copy-rights">
        © Design and developed by Prabhakaran
