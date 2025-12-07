@@ -730,3 +730,6 @@ footer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+.project-min-con{
+    display: flex;
+}
